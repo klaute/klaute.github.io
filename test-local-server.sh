@@ -3,7 +3,7 @@ set -euo pipefail
 
 ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 PORT="${PORT:-8080}"
-HOST="${HOST:-127.0.0.1}"
+HOST="${HOST:-0.0.0.0}"
 
 python3 - "$ROOT_DIR" "$HOST" "$PORT" <<'PY'
 from http.server import ThreadingHTTPServer, SimpleHTTPRequestHandler
@@ -217,9 +217,16 @@ except OSError as exc:
     print(f"Could not start local server on http://{host}:{port}: {exc}", file=sys.stderr)
     sys.exit(1)
 
-print(f"Local preview server running on http://{host}:{port}/")
-print(f"Workshop area: http://{host}:{port}/ai-workshop/")
-print(f"Workshops:     http://{host}:{port}/ai-workshop/workshops.html")
+if host == "0.0.0.0":
+    print(f"Local preview server listening on all interfaces, port {port}.")
+    print(f"Local URL:     http://127.0.0.1:{port}/")
+    print(f"Workshop area: http://127.0.0.1:{port}/ai-workshop/")
+    print(f"Workshops:     http://127.0.0.1:{port}/ai-workshop/workshops.html")
+    print("LAN URL:       http://<your-mac-ip>:%s/ai-workshop/workshops.html" % port)
+else:
+    print(f"Local preview server running on http://{host}:{port}/")
+    print(f"Workshop area: http://{host}:{port}/ai-workshop/")
+    print(f"Workshops:     http://{host}:{port}/ai-workshop/workshops.html")
 print("Press Ctrl+C to stop.")
 
 try:
