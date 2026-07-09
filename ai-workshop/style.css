@@ -264,16 +264,14 @@ p {
   color: var(--muted);
 }
 
-.card a,
-.content-box a {
+.card a {
   color: var(--primary);
   font-weight: 700;
   text-decoration: none;
   text-underline-offset: 3px;
 }
 
-.card a:hover,
-.content-box a:hover {
+.card a:hover {
   color: var(--primary-dark);
   text-decoration: underline;
 }
