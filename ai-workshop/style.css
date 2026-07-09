@@ -503,6 +503,95 @@ p {
   font-weight: 700;
 }
 
+.workshop-overview {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 22px;
+  margin: 34px 0;
+}
+
+.workshop-card {
+  min-height: 260px;
+  padding: 28px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  display: flex;
+  flex-direction: column;
+}
+
+.workshop-card.featured {
+  border-top: 5px solid var(--primary);
+}
+
+.workshop-card h2 {
+  margin-bottom: 14px;
+}
+
+.workshop-card p:not(.flyer-kicker) {
+  color: var(--muted);
+}
+
+.workshop-card a,
+.back-link {
+  color: var(--primary);
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.workshop-card a {
+  margin-top: auto;
+}
+
+.back-link {
+  display: inline-block;
+  margin-bottom: 24px;
+}
+
+.workshop-detail .flyer {
+  margin-bottom: 28px;
+}
+
+.workshop-detail .flyer h1 {
+  margin: 0;
+}
+
+.detail-section {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 32px;
+  margin-bottom: 24px;
+}
+
+.detail-section p {
+  color: var(--muted);
+}
+
+.detail-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 22px;
+}
+
+.detail-grid h3 {
+  margin-top: 0;
+}
+
+.workshop-image {
+  margin: 0 0 28px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface-soft);
+}
+
+.workshop-image img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
 /* =========================
    LISTS
 ========================= */
@@ -643,6 +732,11 @@ p {
   }
 
   .portfolio-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .workshop-overview,
+  .detail-grid {
     grid-template-columns: 1fr;
   }
 

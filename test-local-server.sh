@@ -176,7 +176,7 @@ def render_index_md():
     {''.join(body)}
     <nav class="local-links" aria-label="Local preview links">
       <a href="/ai-workshop/">AI Workshop</a>
-      <a href="/ai-workshop/flyers.html">Workshop Flyers</a>
+      <a href="/ai-workshop/workshops.html">Workshops</a>
     </nav>
   </main>
 </body>
@@ -219,7 +219,7 @@ except OSError as exc:
 
 print(f"Local preview server running on http://{host}:{port}/")
 print(f"Workshop area: http://{host}:{port}/ai-workshop/")
-print(f"Flyers:        http://{host}:{port}/ai-workshop/flyers.html")
+print(f"Workshops:     http://{host}:{port}/ai-workshop/workshops.html")
 print("Press Ctrl+C to stop.")
 
 try:
