@@ -140,6 +140,33 @@ body {
   border-radius: 999px;
 }
 
+.language-switch {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px;
+  background: var(--soft);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+}
+
+.language-switch a {
+  min-width: 38px;
+  padding: 6px 10px;
+  color: var(--muted);
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 800;
+  line-height: 1;
+  text-align: center;
+  text-decoration: none;
+}
+
+.language-switch a.active {
+  color: white;
+  background: var(--primary);
+}
+
 /* =========================
    PAGE LAYOUT
 ========================= */
@@ -683,6 +710,18 @@ p {
   border-color: var(--primary);
 }
 
+.language-entry {
+  min-height: 100vh;
+  display: grid;
+  align-content: center;
+}
+
+.language-entry-actions {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
 /* =========================
    FOOTER
 ========================= */
@@ -746,6 +785,10 @@ p {
 
   .nav-links {
     gap: 16px;
+  }
+
+  .language-switch {
+    margin-top: 4px;
   }
 
   .home-grid {
