@@ -290,6 +290,7 @@ p {
 
 .principles-panel {
   background: var(--surface-soft);
+  min-width: 0;
 }
 
 .principles-list,
@@ -301,6 +302,7 @@ p {
 .principles-list li,
 .compact-list li {
   margin: 8px 0;
+  overflow-wrap: anywhere;
 }
 
 .portfolio-grid {
@@ -506,18 +508,20 @@ p {
 .workshop-overview {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 22px;
-  margin: 34px 0;
+  gap: 24px;
+  margin: 36px 0;
 }
 
 .workshop-card {
-  min-height: 260px;
-  padding: 28px;
+  min-height: 300px;
+  padding: 30px;
   background: var(--surface);
   border: 1px solid var(--line);
   border-radius: var(--radius);
   display: flex;
   flex-direction: column;
+  gap: 14px;
+  box-shadow: 0 14px 34px rgba(24, 32, 42, 0.06);
 }
 
 .workshop-card.featured {
@@ -525,14 +529,15 @@ p {
 }
 
 .workshop-card h2 {
-  margin-bottom: 14px;
+  margin: 0;
+  font-size: 26px;
 }
 
 .workshop-card p:not(.flyer-kicker) {
+  margin: 0 0 4px;
   color: var(--muted);
 }
 
-.workshop-card a,
 .back-link {
   color: var(--primary);
   font-weight: 800;
@@ -540,7 +545,27 @@ p {
 }
 
 .workshop-card a {
+  align-self: flex-start;
   margin-top: auto;
+  padding: 11px 15px;
+  color: var(--primary);
+  background: var(--soft);
+  border: 1px solid rgba(31, 111, 235, 0.2);
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 800;
+  line-height: 1.2;
+  text-decoration: none;
+  transition:
+    background 0.18s ease,
+    border-color 0.18s ease,
+    color 0.18s ease;
+}
+
+.workshop-card a:hover {
+  color: white;
+  background: var(--primary);
+  border-color: var(--primary);
 }
 
 .back-link {
