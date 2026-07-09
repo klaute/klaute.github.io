@@ -264,6 +264,20 @@ p {
   color: var(--muted);
 }
 
+.card a,
+.content-box a {
+  color: var(--primary);
+  font-weight: 700;
+  text-decoration: none;
+  text-underline-offset: 3px;
+}
+
+.card a:hover,
+.content-box a:hover {
+  color: var(--primary-dark);
+  text-decoration: underline;
+}
+
 .statement-card {
   max-width: 780px;
 
