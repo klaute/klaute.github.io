@@ -563,10 +563,6 @@ p {
   box-shadow: 0 14px 34px rgba(24, 32, 42, 0.06);
 }
 
-.workshop-card.featured {
-  border-top: 5px solid var(--primary);
-}
-
 .workshop-card h2 {
   margin: 0;
   font-size: 26px;
