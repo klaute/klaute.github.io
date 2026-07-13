@@ -323,10 +323,6 @@ p {
   padding: 32px;
 }
 
-.intro-panel {
-  border-top: 5px solid var(--primary);
-}
-
 .principles-panel {
   background: var(--surface-soft);
   min-width: 0;
