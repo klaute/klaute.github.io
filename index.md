@@ -1,6 +1,6 @@
 # Kai Lauterbach
 
-## Systems Architect · Technical Leadership · Engineering Enablement
+## Engineer & Systems Architect
 
 Turning Complexity into Engineering Capability.
 
@@ -8,13 +8,15 @@ Turning Complexity into Engineering Capability.
 
 ## About
 
-I help engineering teams and organizations reduce complexity, improve collaboration, and build engineering capabilities that enable people to work more effectively.
+I have more than 20 years of engineering experience across software engineering, embedded systems, Linux, platform security, and systems architecture.
 
-Over the last 20+ years I have worked across embedded systems, platform development, security, Linux, distributed software, and software architecture. While technologies changed, one thing remained constant: I enjoy understanding complex systems, creating structure, connecting people, and helping organizations solve technical challenges in a sustainable way.
+My work focuses on reducing technical complexity by designing reusable platforms, practical architectures, and clear engineering structures for software-intensive systems.
 
-Throughout my career I have deliberately moved into unfamiliar technical domains. I enjoy learning how new systems work, connecting ideas across disciplines, and translating complexity into practical engineering approaches that others can build upon.
+Over the last years, engineering enablement, architectural guidance, and reusable engineering knowledge have become increasingly important parts of my work.
 
-Today my work combines systems architecture, technical leadership, engineering enablement, and AI-assisted engineering. I enjoy creating reusable engineering practices, supporting technical decision-making, and helping teams adopt new technologies successfully.
+This includes implementation concepts, technical documentation, onboarding approaches, and guidance that help engineering teams work more effectively with complex systems.
+
+AI-Assisted Engineering is one current engineering topic in this context: secure local AI systems that support engineering workflows while protecting proprietary knowledge.
 
 ---
 
@@ -22,19 +24,23 @@ Today my work combines systems architecture, technical leadership, engineering e
 
 ### Systems Architecture
 
-Designing scalable software-intensive systems and reducing architectural complexity.
+Designing practical architectures, reducing complexity, and supporting architectural decision-making for software-intensive systems.
 
-### Technical Leadership
+### Platform Security
 
-Supporting engineering teams through architectural guidance, mentoring, and technical decision-making.
+Designing reusable platform security concepts and integration approaches for embedded systems.
 
 ### Engineering Enablement
 
-Creating reusable engineering practices, documentation, onboarding concepts, and knowledge transfer that help organizations become more effective.
+Creating reusable engineering knowledge, implementation concepts, documentation, onboarding approaches, and technical guidance that enable engineering teams to work more effectively.
+
+### Systems Thinking
+
+Understanding complex technical systems, identifying dependencies, and creating practical engineering structures.
 
 ### AI-Assisted Engineering
 
-Applying modern AI tools to improve engineering workflows, architecture work, documentation, and software development.
+Designing secure local AI-supported engineering environments that improve engineering workflows while protecting proprietary knowledge.
 
 ---
 
