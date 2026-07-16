@@ -46,6 +46,6 @@ Designing secure local AI-supported engineering environments that improve engine
 
 ## Contact
 
-Email: [lauterbach.kai@web.de](mailto:lauterbach.kai@web.de)
+Email: [info@lauterbach.tech](mailto:info@lauterbach.tech)
 
 LinkedIn: [Kai Lauterbach](https://www.linkedin.com/in/kai-lauterbach-b87833379/)
