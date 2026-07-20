@@ -540,76 +540,15 @@ p {
   font-weight: 700;
 }
 
-.workshop-overview {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 24px;
-  margin: 36px 0;
-}
-
-.workshop-card {
-  min-height: 300px;
-  padding: 30px;
-  background: var(--surface);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-  box-shadow: 0 14px 34px rgba(24, 32, 42, 0.06);
-}
-
-.workshop-card h2 {
-  margin: 0;
-  font-size: 26px;
-}
-
-.workshop-card p:not(.flyer-kicker) {
-  margin: 0 0 4px;
-  color: var(--muted);
-}
-
 .back-link {
   color: var(--primary);
   font-weight: 800;
   text-decoration: none;
-}
-
-.workshop-card a {
-  align-self: flex-start;
-  margin-top: auto;
-  padding: 11px 15px;
-  color: var(--primary);
-  background: var(--soft);
-  border: 1px solid rgba(31, 111, 235, 0.2);
-  border-radius: 999px;
-  font-size: 14px;
-  font-weight: 800;
-  line-height: 1.2;
-  text-decoration: none;
-  transition:
-    background 0.18s ease,
-    border-color 0.18s ease,
-    color 0.18s ease;
-}
-
-.workshop-card a:hover {
-  color: white;
-  background: var(--primary);
-  border-color: var(--primary);
 }
 
 .back-link {
   display: inline-block;
   margin-bottom: 24px;
-}
-
-.workshop-detail .flyer {
-  margin-bottom: 28px;
-}
-
-.workshop-detail .flyer h1 {
-  margin: 0;
 }
 
 .detail-section {
@@ -632,20 +571,6 @@ p {
 
 .detail-grid h3 {
   margin-top: 0;
-}
-
-.workshop-image {
-  margin: 0 0 28px;
-  overflow: hidden;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  background: var(--surface-soft);
-}
-
-.workshop-image img {
-  display: block;
-  width: 100%;
-  height: auto;
 }
 
 /* =========================
@@ -807,7 +732,6 @@ p {
     grid-template-columns: 1fr;
   }
 
-  .workshop-overview,
   .detail-grid {
     grid-template-columns: 1fr;
   }
