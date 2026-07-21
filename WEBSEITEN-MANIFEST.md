@@ -1,7 +1,7 @@
 # Webseiten-Manifest
 
 Dieses Manifest beschreibt die Regeln fuer Texte, Struktur und Gestaltung der
-Webseiten in diesem Projekt. Es gilt besonders fuer den Bereich `ai-workshop`.
+Webseiten in diesem Projekt. Es gilt besonders fuer den Bereich `engineering`.
 
 ## Grundhaltung
 
@@ -60,27 +60,27 @@ Webseiten in diesem Projekt. Es gilt besonders fuer den Bereich `ai-workshop`.
    "oe", "ue", sofern es sich nicht um technische Bezeichner, Dateinamen oder
    bewusst ASCII-konforme Dokumentation handelt.
 
-## Workshop-Portfolio
+## Leistungsportfolio
 
-10. Workshops als Portfolio denken.
-    Workshops sind keine zufaellige Produktliste. Sie bilden eine
-    zusammenhaengende Reise: Einstieg, Readiness, sichere technische Umsetzung,
-    Governance, Enablement und Anwendung in regulierten Bereichen.
+10. Leistungen als Portfolio denken.
+    Die Leistungen sind keine zufaellige Produktliste. Sie bilden eine
+    zusammenhaengende fachliche Struktur: Systems Architecture, Platform
+    Security, Engineering Enablement und AI-Assisted Engineering.
 
-11. Workshop-Uebersicht als Orientierung.
+11. Leistungsuebersicht als Orientierung.
     Die Uebersichtsseite soll helfen, den passenden Einstieg zu finden, den
-    Unterschied zwischen Workshops zu verstehen und den roten Faden des
+    Unterschied zwischen Leistungen zu verstehen und den roten Faden des
     Portfolios sichtbar zu machen. Sie ist keine vollstaendige Verkaufsseite.
 
-12. Jede Workshop-Detailseite beantwortet dieselben Fragen:
-    - Welches Problem loest dieser Workshop?
+12. Jede Leistungsdetailseite beantwortet dieselben Fragen:
+    - Welches Problem loest diese Leistung?
     - Fuer wen ist er gedacht?
     - Was nehmen die Teilnehmer konkret mit?
     - Warum reicht ChatGPT alleine nicht?
-    - Wie laeuft der Workshop ab?
+    - Wie laeuft die Zusammenarbeit ab?
     - Welche Voraussetzungen gibt es?
     - Welches Ergebnis steht am Ende?
-    - Welcher Workshop passt danach?
+    - Welche Leistung passt danach?
 
 13. AI-Assisted Engineering richtig positionieren.
     Es wird nicht ChatGPT verkauft. Es geht um strukturierten KI-Einsatz,
@@ -88,7 +88,7 @@ Webseiten in diesem Projekt. Es gilt besonders fuer den Bereich `ai-workshop`.
     Entwicklungsprozesse, Review-Kultur und Verantwortung beim Entwickler.
 
 14. Portfolio-Gedanke sichtbar machen.
-    Jede Workshopseite soll erkennbar machen, welcher Workshop davor oder danach
+    Jede Leistungsseite soll erkennbar machen, welche Leistung davor oder danach
     sinnvoll sein kann. Die Seiten sollen wie aus einem Guss wirken.
 
 ## Sprachversionen
@@ -113,19 +113,19 @@ Webseiten in diesem Projekt. Es gilt besonders fuer den Bereich `ai-workshop`.
 18. Startseite: schnell klaeren, fuer wen die Seite ist.
     Innerhalb weniger Sekunden muss klar sein, dass sich die Seite an technische
     Entscheider und Engineering-Organisationen richtet. Sie soll neugierig auf
-    Profil, Workshops und Kontakt machen, aber nicht alles vollstaendig
+    Profil, Leistungen und Kontakt machen, aber nicht alles vollstaendig
     erklaeren.
 
 19. About: Vertrauen durch Denkweise.
     Die About-Seite soll nicht den Lebenslauf wiederholen. Sie erklaert, warum
-    diese Workshops angeboten werden, warum der berufliche Weg logisch dazu
+    diese Leistungen angeboten werden, warum der berufliche Weg logisch dazu
     fuehrt und wie Systems Architecture, Security, Engineering Enablement und
     AI-Assisted Engineering zusammenhaengen.
 
 20. Kontakt: fachlichen Austausch erleichtern.
     Die Kontaktseite soll keinen Kaufdruck erzeugen. Sie vermittelt, dass zuerst
     die technische Situation verstanden wird und erst danach gemeinsam entschieden
-    wird, ob Workshop, Beratung oder ein anderes Format sinnvoll ist.
+    wird, ob Beratung, Architekturarbeit oder ein anderes Format sinnvoll ist.
 
 21. Impressum und Datenschutz schlicht halten.
     Rechtliche Seiten sind keine Marketingseiten. Sie muessen professionell,
@@ -133,7 +133,7 @@ Webseiten in diesem Projekt. Es gilt besonders fuer den Bereich `ai-workshop`.
     Eigenwerbung oder Call-to-Action.
 
 22. Keine unnoetigen Seiten.
-    Wenn Inhalte besser in einen bestehenden Workshop oder eine bestehende
+    Wenn Inhalte besser in eine bestehende Leistung oder eine bestehende
     Struktur passen, keine zusaetzliche Seite behalten. Inhalte muessen fachlich
     richtig einsortiert werden.
 
@@ -155,7 +155,7 @@ Webseiten in diesem Projekt. Es gilt besonders fuer den Bereich `ai-workshop`.
 ## Technische Arbeitsregeln
 
 26. Der Hauptauftritt bleibt stabil.
-    Der `ai-workshop`-Bereich ist ein versteckter Unterbereich. Die urspruengliche
+    Der `engineering`-Bereich ist ein versteckter Unterbereich. Die urspruengliche
     Hauptseite aus `main` beziehungsweise `master` soll bei einem spaeteren Merge
     weiterhin normal erreichbar bleiben.
 
@@ -169,7 +169,7 @@ Webseiten in diesem Projekt. Es gilt besonders fuer den Bereich `ai-workshop`.
 
 28. Commits nach Aufgaben trennen.
     Aenderungen werden in logisch getrennten Commits abgelegt: Startseite,
-    About, Workshops, Kontakt, Impressum, Datenschutz und aehnliche Aufgaben.
+    About, Leistungen, Kontakt, Impressum, Datenschutz und aehnliche Aufgaben.
     Keine gemischten Sammelcommits, wenn Aufgaben trennbar sind.
 
 29. Keine fremden Aenderungen mitnehmen.
