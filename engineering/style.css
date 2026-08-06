@@ -239,9 +239,13 @@ p {
 .home-grid {
   display: grid;
 
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
 
   gap: 24px;
+}
+
+.home-grid > .card {
+  min-width: 0;
 }
 
 /* =========================
@@ -258,6 +262,19 @@ p {
   padding: 28px;
 
   margin-bottom: 24px;
+
+  min-width: 0;
+}
+
+#first-mandates {
+  scroll-margin-top: 96px;
+}
+
+.card h2,
+.card h3,
+.card p,
+.check-list li {
+  overflow-wrap: anywhere;
 }
 
 .card p {
@@ -710,10 +727,12 @@ p {
   .nav {
     flex-direction: column;
     align-items: flex-start;
+    gap: 12px;
+    padding: 14px 18px;
   }
 
   .nav-links {
-    gap: 16px;
+    gap: 10px 16px;
   }
 
   .language-switch {
