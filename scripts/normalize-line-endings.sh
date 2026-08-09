@@ -3,6 +3,8 @@ set -euo pipefail
 
 git ls-files -z |
 while IFS= read -r -d '' file; do
+  [ -f "$file" ] || continue
+
   case "$file" in
     *.jpg|*.jpeg|*.png|*.gif|*.webp|*.ico)
       continue
