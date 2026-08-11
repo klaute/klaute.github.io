@@ -232,6 +232,33 @@ p {
   max-width: 780px;
 }
 
+.service-shortcuts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 26px 0 30px;
+}
+
+.service-shortcuts a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 42px;
+  padding: 10px 14px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface);
+  color: var(--primary);
+  font-weight: 700;
+  text-decoration: none;
+  text-underline-offset: 3px;
+}
+
+.service-shortcuts a:hover {
+  border-color: var(--primary);
+  color: var(--primary-dark);
+  text-decoration: underline;
+}
+
 /* =========================
    GRID
 ========================= */
@@ -596,15 +623,19 @@ p {
 
 .check-list {
   padding-left: 22px;
-  color: var(--text);
+  color: var(--muted);
 }
 
 .check-list li {
   margin: 10px 0;
-  color: var(--text);
+  color: var(--muted);
 }
 
 .check-list li::marker {
+  color: var(--text);
+}
+
+.check-list strong {
   color: var(--text);
 }
 
