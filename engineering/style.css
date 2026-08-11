@@ -596,10 +596,16 @@ p {
 
 .check-list {
   padding-left: 22px;
+  color: var(--text);
 }
 
 .check-list li {
   margin: 10px 0;
+  color: var(--text);
+}
+
+.check-list li::marker {
+  color: var(--text);
 }
 
 /* =========================
