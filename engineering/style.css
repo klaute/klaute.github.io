@@ -549,7 +549,8 @@ p {
 }
 
 /* Inline text links only; buttons keep their own colours. */
-.card a:not(.button) {
+.card a:not(.button),
+.detail-section a:not(.button) {
   color: var(--motif);
   font-weight: 600;
   text-decoration: underline;
@@ -557,7 +558,8 @@ p {
   text-underline-offset: 3px;
 }
 
-.card a:not(.button):hover {
+.card a:not(.button):hover,
+.detail-section a:not(.button):hover {
   color: var(--navy);
   text-decoration-color: currentColor;
 }
@@ -991,7 +993,8 @@ p {
 .portfolio-link:focus-visible,
 .footer-content a:focus-visible,
 .back-link:focus-visible,
-.card a:focus-visible {
+.card a:focus-visible,
+.detail-section a:focus-visible {
   outline: 2px solid var(--steel);
   outline-offset: 3px;
 }
