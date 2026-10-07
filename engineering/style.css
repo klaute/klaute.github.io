@@ -400,6 +400,8 @@ h2,
 h3 {
   color: var(--navy);
   font-family: var(--font);
+  /* Long German compounds must wrap instead of being clipped on narrow screens. */
+  overflow-wrap: break-word;
 }
 
 h1 {
@@ -1277,6 +1279,7 @@ p {
 }
 
 @media (max-width: 560px) {
+
   main.hero-page > * {
     width: calc(100% - 36px);
   }
@@ -1354,6 +1357,22 @@ p {
 
   .footer {
     padding: 0 18px 28px;
+  }
+}
+
+/* Very narrow phones (< 390px): smaller H1 and hyphenation so long German
+   compounds wrap instead of being clipped. */
+@media (max-width: 380px) {
+  h1,
+  .hero-box h1 {
+    font-size: 28px;
+  }
+
+  h1,
+  h2,
+  h3 {
+    -webkit-hyphens: auto;
+    hyphens: auto;
   }
 }
 

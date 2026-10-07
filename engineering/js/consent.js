@@ -115,6 +115,7 @@
       return;
     }
     analyticsLoaded = true;
+    window["ga-disable-" + GA_ID] = false;
 
     window.dataLayer = window.dataLayer || [];
     window.gtag = function () {
@@ -157,9 +158,42 @@
     });
   }
 
-  // Applies a decision to this tab. gtag cannot be unloaded: on withdrawal it
-  // is told to stop using analytics storage at once, cookies are removed and
-  // the page reloads, so no further hit or cookie write can happen.
+  // After withdrawal, drop every request to Google Analytics hosts. gtag
+  // flushes its queue of already collected events when the page unloads; the
+  // opt-out flag does not stop that flush, so the transport itself is closed.
+  function blockAnalyticsTransport() {
+    var analyticsHost = /(^|\.)(google-analytics\.com|analytics\.google\.com|googletagmanager\.com)$/;
+    function isAnalyticsUrl(url) {
+      try {
+        return analyticsHost.test(new URL(String(url), window.location.href).hostname);
+      } catch (error) {
+        return false;
+      }
+    }
+
+    if (navigator.sendBeacon) {
+      var nativeBeacon = navigator.sendBeacon.bind(navigator);
+      navigator.sendBeacon = function (url, data) {
+        return isAnalyticsUrl(url) ? true : nativeBeacon(url, data);
+      };
+    }
+    if (window.fetch) {
+      var nativeFetch = window.fetch.bind(window);
+      window.fetch = function (input, init) {
+        var url = input && input.url ? input.url : input;
+        if (isAnalyticsUrl(url)) {
+          return Promise.resolve(new Response(null, { status: 204 }));
+        }
+        return nativeFetch(input, init);
+      };
+    }
+  }
+
+  // Applies a decision to this tab. gtag cannot be unloaded: on withdrawal
+  // the transport is closed and Google's opt-out flag is set first
+  // (analytics_storage "denied" alone still allows cookieless pings such as
+  // user_engagement), then storage is denied, cookies are removed and the
+  // page reloads.
   function enforceChoice(value) {
     hideBanner();
     if (value === GRANTED) {
@@ -167,6 +201,8 @@
       return;
     }
     if (analyticsLoaded) {
+      blockAnalyticsTransport();
+      window["ga-disable-" + GA_ID] = true;
       window.gtag("consent", "update", { analytics_storage: "denied" });
     }
     clearAnalyticsCookies();
