@@ -11,7 +11,7 @@
 (function () {
   "use strict";
 
-  var GA_ID = "G-FL4YM2QDDM";
+  var GA_ID = "G-1EEWX9ZJJH";
   var STORAGE_KEY = "lt-analytics-consent";
   var GRANTED = "granted";
   var DENIED = "denied";
