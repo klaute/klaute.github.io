@@ -3,8 +3,11 @@
  *
  * GA4 is loaded only after the visitor explicitly accepts in the banner.
  * Without consent no request is sent to Google and no cookie is set.
- * The choice is kept in localStorage; the footer button "Cookie-Einstellungen"
- * / "Cookie settings" reopens the banner so consent can be withdrawn.
+ * The choice is kept in localStorage together with its date and the consent
+ * version. The banner asks again when CONSENT_VERSION changes or the choice is
+ * older than CONSENT_MAX_AGE_DAYS. The footer button "Cookie-Einstellungen" /
+ * "Cookie settings" reopens the banner so consent can be withdrawn; other open
+ * tabs follow a changed choice via the storage event.
  *
  * Contact clicks are sent as GA4 events from links marked with data-track.
  */
@@ -13,6 +16,9 @@
 
   var GA_ID = "G-1EEWX9ZJJH";
   var STORAGE_KEY = "lt-analytics-consent";
+  // Bump when the privacy policy or the analytics scope changes materially.
+  var CONSENT_VERSION = "2026-10-07";
+  var CONSENT_MAX_AGE_DAYS = 365;
   var GRANTED = "granted";
   var DENIED = "denied";
 
@@ -48,20 +54,59 @@
 
   var analyticsLoaded = false;
   var banner = null;
+  // Fallback when localStorage is unavailable: the choice lives for this page view.
+  var storageUsable = true;
+  var memoryChoice = null;
 
-  function readChoice() {
+  // Returns GRANTED or DENIED for a current, valid record; otherwise null.
+  // Legacy plain-string values, other versions and expired records count as
+  // no decision, so the banner asks again.
+  function parseChoice(raw) {
+    var record;
     try {
-      return window.localStorage.getItem(STORAGE_KEY);
+      record = JSON.parse(raw);
     } catch (error) {
       return null;
+    }
+    if (!record || record.version !== CONSENT_VERSION) {
+      return null;
+    }
+    if (record.value !== GRANTED && record.value !== DENIED) {
+      return null;
+    }
+    var age = Date.now() - Date.parse(record.timestamp);
+    if (!(age >= 0) || age > CONSENT_MAX_AGE_DAYS * 24 * 60 * 60 * 1000) {
+      return null;
+    }
+    return record.value;
+  }
+
+  function readChoice() {
+    if (!storageUsable) {
+      return memoryChoice;
+    }
+    try {
+      return parseChoice(window.localStorage.getItem(STORAGE_KEY));
+    } catch (error) {
+      storageUsable = false;
+      return memoryChoice;
     }
   }
 
   function storeChoice(value) {
+    memoryChoice = value;
     try {
-      window.localStorage.setItem(STORAGE_KEY, value);
+      window.localStorage.setItem(
+        STORAGE_KEY,
+        JSON.stringify({
+          value: value,
+          version: CONSENT_VERSION,
+          timestamp: new Date().toISOString()
+        })
+      );
     } catch (error) {
       // Storage blocked: the choice applies to this page view only.
+      storageUsable = false;
     }
   }
 
@@ -112,21 +157,52 @@
     });
   }
 
-  function applyChoice(value) {
-    var wasLoaded = analyticsLoaded;
-    storeChoice(value);
+  // Applies a decision to this tab. gtag cannot be unloaded: on withdrawal it
+  // is told to stop using analytics storage at once, cookies are removed and
+  // the page reloads, so no further hit or cookie write can happen.
+  function enforceChoice(value) {
     hideBanner();
-
     if (value === GRANTED) {
       loadAnalytics();
       return;
     }
-
+    if (analyticsLoaded) {
+      window.gtag("consent", "update", { analytics_storage: "denied" });
+    }
     clearAnalyticsCookies();
-    if (wasLoaded) {
-      // gtag cannot be unloaded; a reload guarantees no further tracking.
+    if (analyticsLoaded) {
       window.location.reload();
     }
+  }
+
+  // Withdraw in this tab if the stored decision no longer grants analytics.
+  function recheckStoredChoice() {
+    var choice = readChoice();
+    if (choice) {
+      enforceChoice(choice);
+    } else if (analyticsLoaded) {
+      enforceChoice(DENIED);
+    }
+  }
+
+  function applyChoice(value) {
+    storeChoice(value);
+    enforceChoice(value);
+  }
+
+  // Keep other open tabs in line with a choice made in this one. The storage
+  // event covers open tabs; the visibility check covers a missed event.
+  function followOtherTabs() {
+    window.addEventListener("storage", function (event) {
+      if (event.key === STORAGE_KEY || event.key === null) {
+        recheckStoredChoice();
+      }
+    });
+    document.addEventListener("visibilitychange", function () {
+      if (document.visibilityState === "visible" && analyticsLoaded) {
+        recheckStoredChoice();
+      }
+    });
   }
 
   function buildBanner() {
@@ -185,6 +261,11 @@
       if (!target || !analyticsLoaded) {
         return;
       }
+      // Never send an event if consent was withdrawn in another tab.
+      if (readChoice() !== GRANTED) {
+        recheckStoredChoice();
+        return;
+      }
       window.gtag("event", target.getAttribute("data-track"), {
         link_url: target.getAttribute("href") || "",
         transport_type: "beacon"
@@ -197,6 +278,7 @@
       button.addEventListener("click", showBanner);
     });
     trackContactClicks();
+    followOtherTabs();
 
     var choice = readChoice();
     if (choice === GRANTED) {
