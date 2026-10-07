@@ -1064,6 +1064,100 @@ p {
 }
 
 /* =========================
+   CONSENT BANNER / ANALYTICS
+   Rendered by js/consent.js; both choices carry equal visual weight.
+========================= */
+
+.footer-consent {
+  padding: 0;
+  border: 0;
+  background: none;
+  color: #596b80;
+  font: inherit;
+  letter-spacing: inherit;
+  text-transform: inherit;
+  cursor: pointer;
+  transition: color 0.18s ease;
+}
+
+.footer-consent:hover {
+  color: var(--navy);
+}
+
+.consent-banner {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 2000;
+  padding: 0 var(--gutter) env(safe-area-inset-bottom, 0px);
+  color: var(--on-dark);
+  background: linear-gradient(135deg, var(--navy), var(--navy-deep));
+  border-top: 2px solid var(--steel);
+}
+
+.consent-inner {
+  max-width: var(--content-width);
+  margin: auto;
+  padding: 22px var(--gutter);
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+
+.consent-text {
+  flex: 1;
+  min-width: 0;
+  max-width: 78ch;
+  margin: 0;
+  font-size: 14.5px;
+  line-height: 1.6;
+}
+
+.consent-text a {
+  color: var(--on-dark-strong);
+  font-weight: 600;
+  text-decoration: underline;
+  text-decoration-color: rgba(218, 224, 230, 0.45);
+  text-underline-offset: 3px;
+}
+
+.consent-actions {
+  display: flex;
+  flex: none;
+  gap: 10px;
+}
+
+.consent-button {
+  min-width: 132px;
+  min-height: 44px;
+  padding: 10px 18px;
+  border: 1px solid var(--silver);
+  border-radius: var(--radius);
+  background: transparent;
+  color: var(--on-dark-strong);
+  font: inherit;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition:
+    background 0.18s ease,
+    color 0.18s ease;
+}
+
+.consent-button:hover {
+  background: var(--paper);
+  color: var(--navy);
+}
+
+.footer-consent:focus-visible,
+.consent-button:focus-visible,
+.consent-text a:focus-visible {
+  outline: 2px solid var(--steel);
+  outline-offset: 3px;
+}
+
+/* =========================
    MOBILE
 ========================= */
 
@@ -1163,6 +1257,22 @@ p {
 
   .statement-card {
     padding: 44px 28px 48px;
+  }
+
+  .consent-inner {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 16px;
+    padding: 18px 0;
+  }
+
+  .consent-actions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .consent-button {
+    min-width: 0;
   }
 }
 

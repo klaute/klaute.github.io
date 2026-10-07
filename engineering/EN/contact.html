@@ -7,11 +7,13 @@
   <title>Contact | Kai Lauterbach</title>
   <meta name="description" content="Contact for an initial technical discussion about Systems Architecture, Platform Security, AI-Assisted Engineering and suitable engagement formats.">
 
-  <link rel="stylesheet" href="../style.css?v=2026100603">
+  <link rel="stylesheet" href="../style.css?v=2026100701">
 
   <link rel="icon" href="../pic/brand/favicon.svg" type="image/svg+xml">
 
   <link rel="apple-touch-icon" href="../pic/brand/apple-touch-icon.png">
+
+  <script src="../js/consent.js?v=2026100701" data-privacy="privacy.html" defer></script>
 </head>
 
 <body>
@@ -93,12 +95,14 @@
     <div class="hero-buttons">
 
       <a class="button primary"
-         href="mailto:info@lauterbach.tech">
+         href="mailto:info@lauterbach.tech"
+         data-track="contact_email">
          info@lauterbach.tech
       </a>
 
       <a class="button secondary"
          href="https://www.linkedin.com/in/kai-lauterbach-b87833379/"
+         data-track="contact_linkedin"
          target="_blank">
          LinkedIn
       </a>
@@ -125,6 +129,7 @@
     <p>© Kai Lauterbach</p>
     <a href="privacy.html">Privacy</a>
     <a href="legal-notice.html">Legal Notice</a>
+    <button type="button" class="footer-consent" data-consent-open>Cookie settings</button>
   </div>
 </footer>
 
