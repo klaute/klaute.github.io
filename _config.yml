@@ -1,0 +1,5 @@
+# Static site: Jekyll only copies files and skips the repo tooling below.
+exclude:
+  - scripts/
+  - test-domains.sh
+  - test-local-server.sh
