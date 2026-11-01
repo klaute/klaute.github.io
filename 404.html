@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <title>Seite nicht gefunden | Lauterbach.tech</title>
+  <link rel="stylesheet" href="/style.css?v=2026100702">
+  <link rel="icon" href="/pic/brand/favicon.svg" type="image/svg+xml">
+  <script>
+    // Old addresses under /engineering/ moved to the site root on 01.11.2026.
+    (function () {
+      var p = window.location.pathname;
+      if (p.indexOf('/engineering/') === 0 || p === '/engineering') {
+        window.location.replace((p.slice('/engineering'.length) || '/') + window.location.search + window.location.hash);
+      }
+    })();
+  </script>
+</head>
+<body>
+  <main class="content">
+    <h1>Seite nicht gefunden / Page not found</h1>
+    <p><a href="/">Zur Startseite / Home</a></p>
+  </main>
+</body>
+</html>
