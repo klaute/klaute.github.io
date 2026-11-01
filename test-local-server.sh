@@ -175,10 +175,10 @@ def render_index_md():
   <main>
     {''.join(body)}
     <nav class="local-links" aria-label="Local preview links">
-      <a href="/engineering/DE/">Deutsch</a>
-      <a href="/engineering/EN/">English</a>
-      <a href="/engineering/DE/services.html">Leistungen DE</a>
-      <a href="/engineering/EN/services.html">Services EN</a>
+      <a href="/DE/">Deutsch</a>
+      <a href="/EN/">English</a>
+      <a href="/DE/services.html">Leistungen DE</a>
+      <a href="/EN/services.html">Services EN</a>
     </nav>
   </main>
 </body>
@@ -222,14 +222,14 @@ except OSError as exc:
 if host == "0.0.0.0":
     print(f"Local preview server listening on all interfaces, port {port}.")
     print(f"Local URL:     http://127.0.0.1:{port}/")
-    print(f"German:        http://127.0.0.1:{port}/engineering/DE/services.html")
-    print(f"English:       http://127.0.0.1:{port}/engineering/EN/services.html")
-    print("LAN URL DE:    http://<your-mac-ip>:%s/engineering/DE/services.html" % port)
-    print("LAN URL EN:    http://<your-mac-ip>:%s/engineering/EN/services.html" % port)
+    print(f"German:        http://127.0.0.1:{port}/DE/services.html")
+    print(f"English:       http://127.0.0.1:{port}/EN/services.html")
+    print("LAN URL DE:    http://<your-mac-ip>:%s/DE/services.html" % port)
+    print("LAN URL EN:    http://<your-mac-ip>:%s/EN/services.html" % port)
 else:
     print(f"Local preview server running on http://{host}:{port}/")
-    print(f"German:        http://{host}:{port}/engineering/DE/services.html")
-    print(f"English:       http://{host}:{port}/engineering/EN/services.html")
+    print(f"German:        http://{host}:{port}/DE/services.html")
+    print(f"English:       http://{host}:{port}/EN/services.html")
 print("Press Ctrl+C to stop.")
 
 try:
